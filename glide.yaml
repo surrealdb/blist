@@ -1,2 +1,8 @@
 package: github.com/abcum/blist
-import: []
+import:
+- package: github.com/google/btree
+testImport:
+- package: github.com/smartystreets/goconvey
+  version: ^1.6.2
+  subpackages:
+  - convey
