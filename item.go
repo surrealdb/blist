@@ -23,6 +23,7 @@ type Item struct {
 	list *List
 }
 
+// Less determins whether an item precedes another item in the list.
 func (i *Item) Less(than btree.Item) bool {
 	return i.ver < than.(*Item).ver
 }
