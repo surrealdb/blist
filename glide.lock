@@ -1,17 +1,17 @@
 hash: cd860ea78875cc449bf528e00b39ba30463d0c97b75bf48bc4a935c22a8f88ff
-updated: 2017-04-26T23:42:35.522971617+01:00
+updated: 2017-06-15T11:09:54.248394752+01:00
 imports:
 - name: github.com/google/btree
   version: 316fb6d3f031ae8f4d457c6c5186b9e3ded70435
 testImports:
 - name: github.com/gopherjs/gopherjs
-  version: acd7601d2a20b8dbef844f92b7bdb031f05f4442
+  version: dc374d32704510cb387457180ca9d5193978b555
   subpackages:
   - js
 - name: github.com/jtolds/gls
-  version: bb0351aa7eb6f322f32667d51375f26a2bca6628
+  version: 77f18212c9c7edc9bd6a33d383a7b545ce62f064
 - name: github.com/smartystreets/assertions
-  version: 26acb9229f421449ac63d014995b282d59261a8b
+  version: 4ea54c1f28ad3ae597e76607dea3871fa177e263
   subpackages:
   - internal/go-render/render
   - internal/oglematchers
