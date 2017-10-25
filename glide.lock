@@ -1,11 +1,11 @@
 hash: cd860ea78875cc449bf528e00b39ba30463d0c97b75bf48bc4a935c22a8f88ff
-updated: 2017-10-10T17:11:07.626222+01:00
+updated: 2017-10-25T23:27:55.872102+01:00
 imports:
 - name: github.com/google/btree
   version: 316fb6d3f031ae8f4d457c6c5186b9e3ded70435
 testImports:
 - name: github.com/gopherjs/gopherjs
-  version: 415225646bb92c4449bb484646f2c95a98402f6f
+  version: a0a7cfed7b2a54080888fd2b3d4a3ec14562c86c
   subpackages:
   - js
 - name: github.com/jtolds/gls
