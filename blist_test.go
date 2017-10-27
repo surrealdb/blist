@@ -408,6 +408,26 @@ func TestMain(t *testing.T) {
 
 	Convey("------------------------------", t, nil)
 
+	Convey("Can reset 2nd item", t, func() {
+		i = x.Get(2, Exact)
+		i.Set([]byte{'T'})
+		So(i.Val(), ShouldResemble, []byte{'T'})
+		So(x.Get(2, Exact).Val(), ShouldResemble, []byte{'T'})
+	})
+
+	Convey("Can reset 4th item", t, func() {
+		i = x.Get(4, Exact)
+		i.Set([]byte{'F'})
+		So(i.Val(), ShouldResemble, []byte{'F'})
+		So(x.Get(4, Exact).Val(), ShouldResemble, []byte{'F'})
+	})
+
+	// ----------------------------------------
+	// ----------------------------------------
+	// ----------------------------------------
+
+	Convey("------------------------------", t, nil)
+
 	Convey("Can walk through the list and exit", t, func() {
 		var items []*Item
 		x.Walk(func(i *Item) bool {

@@ -38,6 +38,12 @@ func (i *Item) Val() interface{} {
 	return i.val
 }
 
+// Set updates the value of this item in the containing list.
+func (i *Item) Set(val interface{}) *Item {
+	i.val = val
+	return i
+}
+
 // Del deletes the item from any containing list and returns it.
 func (i *Item) Del() *Item {
 
