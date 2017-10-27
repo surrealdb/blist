@@ -39,6 +39,8 @@ func TestMain(t *testing.T) {
 		So(x.Max(), ShouldEqual, x.Get(2, Exact))
 		So(i.Ver(), ShouldEqual, 2)
 		So(i.Val(), ShouldResemble, []byte{2})
+		So(i.Prev(), ShouldEqual, nil)
+		So(i.Next(), ShouldEqual, nil)
 	})
 
 	Convey("Can set 4th item", t, func() {
@@ -48,6 +50,8 @@ func TestMain(t *testing.T) {
 		So(x.Max(), ShouldEqual, x.Get(4, Exact))
 		So(i.Ver(), ShouldEqual, 4)
 		So(i.Val(), ShouldResemble, []byte{4})
+		So(i.Prev().Val(), ShouldResemble, []byte{2})
+		So(i.Next(), ShouldEqual, nil)
 	})
 
 	Convey("Can set 1st item", t, func() {
@@ -57,6 +61,8 @@ func TestMain(t *testing.T) {
 		So(x.Max(), ShouldEqual, x.Get(4, Exact))
 		So(i.Ver(), ShouldEqual, 1)
 		So(i.Val(), ShouldResemble, []byte{1})
+		So(i.Prev(), ShouldEqual, nil)
+		So(i.Next().Val(), ShouldResemble, []byte{2})
 	})
 
 	Convey("Can set 3rd item", t, func() {
@@ -66,6 +72,8 @@ func TestMain(t *testing.T) {
 		So(x.Max(), ShouldEqual, x.Get(4, Exact))
 		So(i.Ver(), ShouldEqual, 3)
 		So(i.Val(), ShouldResemble, []byte{3})
+		So(i.Prev().Val(), ShouldResemble, []byte{2})
+		So(i.Next().Val(), ShouldResemble, []byte{4})
 	})
 
 	Convey("Can set 5th item", t, func() {
@@ -75,6 +83,8 @@ func TestMain(t *testing.T) {
 		So(x.Max(), ShouldEqual, x.Get(5, Exact))
 		So(i.Ver(), ShouldEqual, 5)
 		So(i.Val(), ShouldResemble, []byte{5})
+		So(i.Prev().Val(), ShouldResemble, []byte{4})
+		So(i.Next(), ShouldEqual, nil)
 	})
 
 	Convey("Can get list size", t, func() {
@@ -169,10 +179,26 @@ func TestMain(t *testing.T) {
 
 	Convey("------------------------------", t, nil)
 
+	Convey("Can get nearest item", t, func() {
+		So(x.Get(-10, Nearest).Ver(), ShouldEqual, 1)
+		So(x.Get(1, Nearest).Ver(), ShouldEqual, 1)
+		So(x.Get(3, Nearest).Ver(), ShouldEqual, 3)
+		So(x.Get(5, Nearest).Ver(), ShouldEqual, 5)
+		So(x.Get(10, Nearest).Ver(), ShouldEqual, 5)
+	})
+
+	// ----------------------------------------
+	// ----------------------------------------
+	// ----------------------------------------
+
+	Convey("------------------------------", t, nil)
+
 	Convey("Can delete 1st item", t, func() {
 		i = x.Del(1, Exact)
 		So(i.Ver(), ShouldEqual, 1)
 		So(i.Val(), ShouldResemble, []byte{1})
+		So(i.Prev(), ShouldEqual, nil)
+		So(i.Next(), ShouldEqual, nil)
 	})
 
 	Convey("Can not get deleted item", t, func() {
@@ -206,6 +232,8 @@ func TestMain(t *testing.T) {
 		i = x.Del(5, Exact)
 		So(i.Ver(), ShouldEqual, 5)
 		So(i.Val(), ShouldResemble, []byte{5})
+		So(i.Prev(), ShouldEqual, nil)
+		So(i.Next(), ShouldEqual, nil)
 	})
 
 	Convey("Can not get deleted item", t, func() {
@@ -239,6 +267,8 @@ func TestMain(t *testing.T) {
 		i = x.Del(3, Exact)
 		So(i.Ver(), ShouldEqual, 3)
 		So(i.Val(), ShouldResemble, []byte{3})
+		So(i.Prev(), ShouldEqual, nil)
+		So(i.Next(), ShouldEqual, nil)
 	})
 
 	Convey("Can not get deleted item", t, func() {
@@ -272,6 +302,8 @@ func TestMain(t *testing.T) {
 		i = x.Del(2, Exact)
 		So(i.Ver(), ShouldEqual, 2)
 		So(i.Val(), ShouldResemble, []byte{2})
+		So(i.Prev(), ShouldEqual, nil)
+		So(i.Next(), ShouldEqual, nil)
 	})
 
 	Convey("Can not get deleted item", t, func() {
@@ -305,6 +337,8 @@ func TestMain(t *testing.T) {
 		i = x.Del(4, Exact)
 		So(i.Ver(), ShouldEqual, 4)
 		So(i.Val(), ShouldResemble, []byte{4})
+		So(i.Prev(), ShouldEqual, nil)
+		So(i.Next(), ShouldEqual, nil)
 	})
 
 	Convey("Can not get deleted item", t, func() {

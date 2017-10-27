@@ -55,3 +55,35 @@ func (i *Item) Del() *Item {
 	return i
 
 }
+
+// Prev returns the previous item to this item in the list.
+func (i *Item) Prev() *Item {
+
+	if i.list != nil {
+
+		i.list.lock.RLock()
+		defer i.list.lock.RUnlock()
+
+		return i.list.find(i.ver, Prev)
+
+	}
+
+	return nil
+
+}
+
+// Next returns the next item to this item in the list.
+func (i *Item) Next() *Item {
+
+	if i.list != nil {
+
+		i.list.lock.RLock()
+		defer i.list.lock.RUnlock()
+
+		return i.list.find(i.ver, Next)
+
+	}
+
+	return nil
+
+}
