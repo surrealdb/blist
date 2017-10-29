@@ -19,7 +19,7 @@ import "github.com/google/btree"
 // Item represents an item in an in-memory btree.
 type Item struct {
 	ver  int64
-	val  interface{}
+	val  []byte
 	list *List
 }
 
@@ -34,12 +34,12 @@ func (i *Item) Ver() int64 {
 }
 
 // Val returns the value of this item in the containing list.
-func (i *Item) Val() interface{} {
+func (i *Item) Val() []byte {
 	return i.val
 }
 
 // Set updates the value of this item in the containing list.
-func (i *Item) Set(val interface{}) *Item {
+func (i *Item) Set(val []byte) *Item {
 	i.val = val
 	return i
 }
