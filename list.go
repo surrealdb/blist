@@ -190,6 +190,19 @@ func (l *List) Walk(fn func(*Item) bool) {
 
 }
 
+// Rng iterates over the list starting at the first version, and continuing
+// until the walk function returns true.
+func (l *List) Rng(beg, end int64, fn func(*Item) bool) {
+
+	l.lock.RLock()
+	defer l.lock.RUnlock()
+
+	l.tree.AscendRange(&Item{ver: beg}, &Item{ver: end}, func(i btree.Item) bool {
+		return !fn(i.(*Item))
+	})
+
+}
+
 // ---------------------------------------------------------------------------
 
 func (l *List) find(ver int64, what Find) (i *Item) {

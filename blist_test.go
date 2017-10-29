@@ -193,6 +193,23 @@ func TestMain(t *testing.T) {
 
 	Convey("------------------------------", t, nil)
 
+	Convey("Can get range of items", t, func() {
+		var items []*Item
+		x.Rng(3, 5, func(i *Item) bool {
+			items = append(items, i)
+			return false
+		})
+		So(len(items), ShouldEqual, 2)
+		So(items[0], ShouldEqual, x.Get(3, Exact))
+		So(items[1], ShouldEqual, x.Get(4, Exact))
+	})
+
+	// ----------------------------------------
+	// ----------------------------------------
+	// ----------------------------------------
+
+	Convey("------------------------------", t, nil)
+
 	Convey("Can delete 1st item", t, func() {
 		i = x.Del(1, Exact)
 		So(i.Ver(), ShouldEqual, 1)
