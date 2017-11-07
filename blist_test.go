@@ -180,7 +180,7 @@ func TestMain(t *testing.T) {
 	Convey("------------------------------", t, nil)
 
 	Convey("Can get nearest item", t, func() {
-		So(x.Get(-10, Nearest).Ver(), ShouldEqual, 1)
+		So(x.Get(0, Nearest).Ver(), ShouldEqual, 1)
 		So(x.Get(1, Nearest).Ver(), ShouldEqual, 1)
 		So(x.Get(3, Nearest).Ver(), ShouldEqual, 3)
 		So(x.Get(5, Nearest).Ver(), ShouldEqual, 5)

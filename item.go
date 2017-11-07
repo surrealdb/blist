@@ -18,7 +18,7 @@ import "github.com/google/btree"
 
 // Item represents an item in an in-memory btree.
 type Item struct {
-	ver  int64
+	ver  uint64
 	val  interface{}
 	list *List
 }
@@ -29,7 +29,7 @@ func (i *Item) Less(than btree.Item) bool {
 }
 
 // Ver returns the version of this item in the containing list.
-func (i *Item) Ver() int64 {
+func (i *Item) Ver() uint64 {
 	return i.ver
 }
 
