@@ -66,7 +66,7 @@ func (l *List) Clr() {
 // Put inserts a new item into the list, ensuring that the list is sorted
 // after insertion. If an item with the same version already exists in the
 // list, then the value is updated.
-func (l *List) Put(ver int64, val []byte) *Item {
+func (l *List) Put(ver uint64, val interface{}) *Item {
 
 	l.lock.Lock()
 	defer l.lock.Unlock()
