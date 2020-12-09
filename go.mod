@@ -4,5 +4,7 @@ go 1.13
 
 require (
 	github.com/google/btree v1.0.0
-	github.com/smartystreets/goconvey v0.0.0-20190731233626-505e41936337
+	github.com/gopherjs/gopherjs v0.0.0-20200217142428-fce0ec30dd00 // indirect
+	github.com/smartystreets/assertions v1.2.0 // indirect
+	github.com/smartystreets/goconvey v1.6.4
 )
