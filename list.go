@@ -1,4 +1,4 @@
-// Copyright © 2016 Abcum Ltd
+// Copyright © SurrealDB Ltd
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -14,8 +14,11 @@
 
 package blist
 
-import "sync"
-import "github.com/google/btree"
+import (
+	"sync"
+
+	"github.com/google/btree"
+)
 
 // List represents an in-memory binary list.
 type List struct {
